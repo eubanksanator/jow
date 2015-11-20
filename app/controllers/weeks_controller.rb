@@ -10,6 +10,7 @@ class WeeksController < ApplicationController
 
   def new
     @week = Week.new
+    @week.days.build
   end
 
   def edit
@@ -57,6 +58,7 @@ class WeeksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def week_params
-      params.require(:week).permit(:week_number)
+      params.require(:week).permit(:week_number,
+        days_attributes: [:name, :week_id])
     end
-end
+  end

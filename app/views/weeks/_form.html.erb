@@ -4,6 +4,14 @@
    <%= f.label :week_number %>
    <%= f.number_field :week_number %>
 </div>
+
+<div class="field">
+   <%= f.fields_for :days do |f_days| %>
+      <%= f_days.label :name, "Day of the week" %>
+      <%= f_days.text_field :name %>
+   <% end %>
+</div>
+
 <div class="actions">
   <%= f.submit %>
 </div>

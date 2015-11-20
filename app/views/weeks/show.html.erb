@@ -1,2 +1,9 @@
-<h1>Weeks#show</h1>
-<p>Find me in app/views/weeks/show.html.erb</p>
+<h1>Weeks</h1>
+<hr>
+<h2>Week <%= @week.week_number %></h2>
+
+<ul>
+   <% @week.days.each do |day| %>
+   <li><%= day.name %></li>
+   <% end %>
+</ul>
