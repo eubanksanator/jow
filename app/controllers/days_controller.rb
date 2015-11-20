@@ -24,7 +24,7 @@ class DaysController < ApplicationController
   # POST /days
   # POST /days.json
   def create
-    @day = Day.new(day_params)
+    @day = @week.days.build(day_params)
 
     respond_to do |format|
       if @day.save

@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151118011824) do
+ActiveRecord::Schema.define(version: 20151120000001) do
 
   create_table "days", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "week_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -30,5 +31,16 @@ ActiveRecord::Schema.define(version: 20151118011824) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "workouts", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "sets"
+    t.string   "reps"
+    t.integer  "day_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "workouts", ["day_id"], name: "index_workouts_on_day_id"
 
 end

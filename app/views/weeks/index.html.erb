@@ -1,2 +1,7 @@
-<h1>Weeks#index</h1>
-<p>Find me in app/views/weeks/index.html.erb</p>
+<h1>List of Weeks</h1>
+
+<% @weeks.each do |week| %>
+   <h5>Week <%= week.week_number %></h5>
+   <p>Add a day</p>
+<% end %>
+<%= link_to "Add week", new_week_path %>

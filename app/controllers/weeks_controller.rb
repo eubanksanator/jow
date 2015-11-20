@@ -20,7 +20,7 @@ class WeeksController < ApplicationController
 
     respond_to do |format|
       if @week.save
-        format.html { redirect_to @week, notice: 'week was successfully created.' }
+        format.html { redirect_to weeks_url, notice: 'week was successfully created.' }
         format.json { render :show, status: :created, location: @week }
       else
         format.html { render :new }
@@ -57,6 +57,6 @@ class WeeksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def week_params
-      params.require(:week).permit(:name)
+      params.require(:week).permit(:week_number)
     end
 end
