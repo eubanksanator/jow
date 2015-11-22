@@ -16,22 +16,14 @@
   <%= f.text_field :name %>
 </div>
 
-<div class="field">
-  <% @wo_for_a_day.each do |workout| %>
-  <%= f.fields_for :workouts, workout do |f_wo| %>
-  <div class="field">
-    <%= f_wo.label 'Name of Workout' %>
-    <%= f_wo.text_field :name %>
-    <div class="field">
-      <ul>
-        <li><%= f_wo.label :sets %>: <%= f_wo.text_field :sets %></li>
-        <li><%= f_wo.label :reps %>: <%= f_wo.text_field :reps %></li>
-      </ul>
-    </div>
-  </div>
-  <% end %>
-  <% end %>
-</div>
+<%= f.fields_for :workouts do |f_wo| %>
+  <%= f_wo.label 'workout name' %>
+  <%= f_wo.text_field :name %> <br>
+  <%= f_wo.label :sets %>
+  <%= f_wo.number_field :sets %> <br>
+  <%= f_wo.label :reps %>
+  <%= f_wo.text_field :reps %>
+<% end %>
 
 <div class="actions">
   <%= f.submit %>

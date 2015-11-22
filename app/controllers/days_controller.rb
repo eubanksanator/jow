@@ -15,9 +15,8 @@ class DaysController < ApplicationController
   # GET /days/new
   def new
     @day = Day.new
-    @wo_for_a_day = []
+    @day.workouts.build
 
-    10.times {@wo_for_a_day << @day.workouts.build}
   end
 
   # GET /days/1/edit
@@ -31,7 +30,7 @@ class DaysController < ApplicationController
 
     respond_to do |format|
       if @day.save
-        format.html { redirect_to @day, notice: 'Day was successfully created.' }
+        format.html { redirect_to days_url, notice: 'Day was successfully created.' }
         format.json { render :show, status: :created, location: @day }
       else
         format.html { render :new }
@@ -72,6 +71,6 @@ class DaysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def day_params
-      params.require(:day).permit(:name, workouts_attributes: [:name, :sets, :reps, :day_id])
+      params.require(:day).permit(:name, workouts_attributes: [:id, :name, :sets, :reps, :day_id])
     end
 end
