@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   resources :weeks
   resources :users
 
-  root 'users#index'
+  root 'weeks#index'
 end
