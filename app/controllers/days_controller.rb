@@ -15,6 +15,9 @@ class DaysController < ApplicationController
   # GET /days/new
   def new
     @day = Day.new
+    @wo_for_a_day = []
+
+    10.times {@wo_for_a_day << @day.workouts.build}
   end
 
   # GET /days/1/edit
@@ -24,7 +27,7 @@ class DaysController < ApplicationController
   # POST /days
   # POST /days.json
   def create
-    @day = @week.days.build(day_params)
+    @day = Day.new(day_params)
 
     respond_to do |format|
       if @day.save
@@ -69,6 +72,6 @@ class DaysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def day_params
-      params.require(:day).permit(:name)
+      params.require(:day).permit(:name, workouts_attributes: [:name, :sets, :reps, :day_id])
     end
 end

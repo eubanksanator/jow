@@ -10,7 +10,9 @@ class WeeksController < ApplicationController
 
   def new
     @week = Week.new
-    @week.days.build
+    @days_for_a_week = []
+
+    7.times {@days_for_a_week << @week.days.build}
   end
 
   def edit

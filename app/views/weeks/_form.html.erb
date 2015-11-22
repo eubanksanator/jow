@@ -6,13 +6,19 @@
 </div>
 
 <div class="field">
-   <%= f.fields_for :days do |f_days| %>
-      <%= f_days.label :name, "Day of the week" %>
-      <%= f_days.text_field :name %>
+   <% @days_for_a_week.each do |day|%>
+   <%= f.fields_for :days, day do |f_days| %>
+
+      <div class="field">
+         <%= f_days.label "Day of the week" %>
+         <%= f_days.text_field :name %>
+      </div>
+
+   <% end %>
    <% end %>
 </div>
 
 <div class="actions">
-  <%= f.submit %>
+ <%= f.submit %>
 </div>
 <% end %>
