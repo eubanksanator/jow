@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Days</h1>
+<h1>Listing Days for week <%= @week.week_number %></h1>
 <% @days.each do |day| %>
 <ul>
   <li><%= day.name %></li>

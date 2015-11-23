@@ -11,8 +11,13 @@ class WeeksController < ApplicationController
   def new
     @week = Week.new
     @days_for_a_week = []
-
+    @wo_for_day = []
     7.times {@days_for_a_week << @week.days.build}
+
+    @days_for_a_week.each do |day|
+      @wo_for_day << day.workouts.build
+    end
+
   end
 
   def edit

@@ -9,16 +9,22 @@
    <% @days_for_a_week.each do |day|%>
    <%= f.fields_for :days, day do |f_days| %>
 
-      <div class="field">
-         <%= f_days.label "Day of the week" %>
-         <%= f_days.text_field :name %>
-      </div>
-
+   <div class="field">
+      <%= f_days.label "Day of the week" %>
+      <%= f_days.text_field :name %>
+      <ul>
+         <%= @wo_for_day.each do |wo_day| %>
+         <%= f.fields_for :workouts, wo_day do |f_wo| %>
+         <li><%= f_wo.label 'workout name' %>: <%= f_wo.text_field :name %></li>
+         <% end %>
+         <% end %>
+      </ul>
+   </div>
    <% end %>
    <% end %>
 </div>
 
 <div class="actions">
- <%= f.submit %>
+  <%= f.submit %>
 </div>
 <% end %>

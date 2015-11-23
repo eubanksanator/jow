@@ -4,7 +4,8 @@ class DaysController < ApplicationController
   # GET /days
   # GET /days.json
   def index
-    @days = Day.all
+    @week = Week.find(params[:week_id])
+    @days = @week.days
   end
 
   # GET /days/1
@@ -21,6 +22,7 @@ class DaysController < ApplicationController
 
   # GET /days/1/edit
   def edit
+    @week = Week.find(params[:week_id])
   end
 
   # POST /days
