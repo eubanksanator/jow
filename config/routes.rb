@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  resources :workouts
-  resources :days
-  resources :weeks
-  resources :users
 
-  root 'weeks#index'
+   resources :workouts
+   resources :users
+
+   resources :weeks do
+      resources :days
+   end
+
+   root 'weeks#index'
 end
