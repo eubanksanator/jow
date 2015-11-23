@@ -13,10 +13,10 @@
       <%= f_days.label "Day of the week" %>
       <%= f_days.text_field :name %>
       <ul>
-         <%# @wo_for_day.each do |wo_day| %>
-         <%= f.fields_for :workouts, day.workouts.build do |f_wo| %>
+         <%= @wo_for_day.each do |wo_day| %>
+         <%= f.fields_for :workouts, wo_day do |f_wo| %>
          <li><%= f_wo.label 'workout name' %>: <%= f_wo.text_field :name %></li>
-         <%# end %>
+         <% end %>
          <% end %>
       </ul>
    </div>
