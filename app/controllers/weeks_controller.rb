@@ -14,8 +14,13 @@ class WeeksController < ApplicationController
     @wo_for_day = []
     7.times {@days_for_a_week << @week.days.build}
 
-    @days_for_a_week.each do |day|
-      @wo_for_day << day.workouts.build
+    # @days_for_a_week.each do |day|
+    #   @wo_for_day << day.workouts.build
+    # end
+    7.times do
+      @week = Week.new
+      @days = @week.days.build
+      @workouts = @days.workouts.build
     end
 
   end
@@ -66,6 +71,6 @@ class WeeksController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def week_params
       params.require(:week).permit(:week_number,
-        days_attributes: [:name, :week_id])
+        days_attributes: [:name, :week_id, workouts_attributes: [:name, :day_id]])
     end
   end

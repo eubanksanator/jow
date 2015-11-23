@@ -2,16 +2,14 @@
 
 <h1>Listing Days for week <%= @week.week_number %></h1>
 <% @days.each do |day| %>
-<ul>
-  <li><%= day.name %></li>
-  <% day.workouts.each do |workout| %>
+  <h2><%= day.name %>:</h2>
   <ul>
+  <% day.workouts.each do |workout| %>
     <li><%= workout.name %></li>
     <li><%= workout.sets %></li>
     <li><%= workout.reps %></li>
-  </ul>
   <% end %>
-</ul>
+  </ul>
 <% end %>
 
 <%= link_to 'New Day', new_week_day_path %>
