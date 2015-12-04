@@ -17,7 +17,7 @@ class WeeksController < ApplicationController
     @days_for_a_week.each do |day|
       @wo_for_day << day.workouts.build
     end
-
+  # Must figure out how to connect a build field for a workout to a day of the week (just one)
   end
 
   def edit
@@ -67,5 +67,6 @@ class WeeksController < ApplicationController
     def week_params
       params.require(:week).permit(:week_number,
         days_attributes: [:name, :week_id])
+      # how to get 'workouts_attributes: [] to work'
     end
   end
