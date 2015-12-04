@@ -14,9 +14,6 @@ class WeeksController < ApplicationController
     @wo_for_day = []
     7.times {@days_for_a_week << @week.days.build}
 
-    @days_for_a_week.each do |day|
-      @wo_for_day << day.workouts.build
-    end
   # Must figure out how to connect a build field for a workout to a day of the week (just one)
   end
 

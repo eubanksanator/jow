@@ -23,6 +23,7 @@ class DaysController < ApplicationController
   # GET /days/1/edit
   def edit
     @week = Week.find(params[:week_id])
+    @day.workouts.build
   end
 
   # POST /days

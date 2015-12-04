@@ -17,12 +17,18 @@
 </div>
 
 <%= f.fields_for :workouts do |f_wo| %>
+<div class="field">
   <%= f_wo.label 'workout name' %>
   <%= f_wo.text_field :name %> <br>
+</div>
+<div class="field">
   <%= f_wo.label :sets %>
   <%= f_wo.number_field :sets %> <br>
+</div>
+<div class="field">
   <%= f_wo.label :reps %>
   <%= f_wo.text_field :reps %>
+</div>
 <% end %>
 
 <div class="actions">

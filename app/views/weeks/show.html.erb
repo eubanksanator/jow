@@ -4,6 +4,6 @@
 
 <ul>
    <% @week.days.each do |day| %>
-   <li><%= day.name %></li>
+   <li><%= link_to day.name, edit_week_day_path(@week, day) %></li>
    <% end %>
 </ul>
