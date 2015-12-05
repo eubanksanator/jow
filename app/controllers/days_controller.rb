@@ -45,9 +45,11 @@ class DaysController < ApplicationController
   # PATCH/PUT /days/1
   # PATCH/PUT /days/1.json
   def update
+    @week = params[:week_id]
+
     respond_to do |format|
       if @day.update(day_params)
-        format.html { redirect_to @day, notice: 'Day was successfully updated.' }
+        format.html { redirect_to week_day_url(@week,@day), notice: 'Day was successfully updated.' }
         format.json { render :show, status: :ok, location: @day }
       else
         format.html { render :edit }

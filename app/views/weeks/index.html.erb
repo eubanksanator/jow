@@ -1,7 +1,7 @@
 <h1>List of Weeks</h1>
 
 <% @weeks.each do |week| %>
-<h5>Week <%= week.week_number %></h5>
+<h5><%= link_to "Week #{week.week_number}", week_path(week) %></h5>
 <ul>
    <% week.days.each do |day| %>
    <li><%= day.name %></li>

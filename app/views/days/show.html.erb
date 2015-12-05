@@ -1,9 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @day.name %>
-</p>
+<h1><%= @day.name %></h1>
+<% @day.workouts.each do |wo| %>
+<ul>
+   <li><%= wo.name %></li>
+</ul>
+<% end %>
 
 <%= link_to 'Edit', edit_week_day_path %> |
 <%= link_to 'Back', week_days_path %>
