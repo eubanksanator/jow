@@ -15,9 +15,6 @@ class WorkoutsController < ApplicationController
   # GET /workouts/new
   def new
     @workout = Workout.new
-    if params[:day_id]
-      @workout.day_id = params[:day_id]
-    end
   end
 
   # GET /workouts/1/edit
@@ -28,7 +25,6 @@ class WorkoutsController < ApplicationController
   # POST /workouts.json
   def create
     @workout = Workout.new(workout_params)
-    # @workout.day_id = params[:day_id]
 
     respond_to do |format|
       if @workout.save

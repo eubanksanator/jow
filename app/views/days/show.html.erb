@@ -2,10 +2,16 @@
 
 <h1><%= @day.name %></h1>
 <% @day.workouts.each do |wo| %>
-<ul>
+<ol>
    <li><%= wo.name %></li>
-</ul>
+   <ul>
+      <li>Sets: <%= wo.sets %></li>
+      <li>Reps: <%= wo.reps %></li>
+   </ul>
+</ol>
 <% end %>
 
-<%= link_to 'Edit', edit_week_day_path %> |
-<%= link_to 'Back', week_days_path %>
+<hr>
+
+<h3>Add new workout</h3>
+<%= render "workouts/form", :@workout => Workout.new %>
