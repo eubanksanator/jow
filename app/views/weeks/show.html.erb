@@ -7,7 +7,7 @@
    <li><%= link_to day.name, edit_week_day_path(@week, day) %></li>
    <!-- Add a workout for this day by editing the day? -->
    <!-- OR -->
-   <p><%= link_to "Add workout for day", new_workout_path %></p>
+   <p><%= link_to "Add workout for day", new_workout_path(:day_id => day.id) %></p>
    <!-- Add a workout for this day by creating new workout ( but need to pass in the day your adding workout too) -->
    <% end %>
 </ul>

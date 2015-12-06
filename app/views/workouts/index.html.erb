@@ -19,7 +19,7 @@
         <td><%= workout.name %></td>
         <td><%= workout.sets %></td>
         <td><%= workout.reps %></td>
-        <td><%= workout.day %></td>
+        <td><%= workout.day.name %></td>
         <td><%= link_to 'Show', workout %></td>
         <td><%= link_to 'Edit', edit_workout_path(workout) %></td>
         <td><%= link_to 'Destroy', workout, method: :delete, data: { confirm: 'Are you sure?' } %></td>
